@@ -1,0 +1,11 @@
+# Core
+streamlit>=1.33,<2.0
+pandas>=2.1,<3.0
+numpy>=1.26,<3.0
+plotly>=5.18,<6.0
+
+# PDF (fitz 모듈 제공)
+pymupdf>=1.24.10,<2.0
+
+# OpenAI API (v1 클라이언트)
+openai>=1.30,<2.0

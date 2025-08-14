@@ -1,5 +1,3 @@
-# complete_integrated_pdf_to_viz.py
-
 import os
 import re
 import io
@@ -176,6 +174,7 @@ def get_summary_from_pdf(pdf_text, client, MODEL_NAME):
 
 ### 1. 핵심 요약
 - 저자가 말하고자 하는 핵심 내용을 **보고서 내의 근거만을 바탕으로 1문장**으로 요약해 줘.
+- 만약 보고서에서 명확한 핵심 내용을 찾기 어렵더라도, 반드시 "핵심요약:" 이라는 키워드 다음에 요약 문장을 작성해 줘. 절대로 이 키워드를 누락하지 마.
 - **절대로 추론이나 개인적인 의견을 포함하지 마.**
 
 ### 2. 주요 지표
@@ -1513,7 +1512,7 @@ if uploaded_pdf_files:
             st.session_state.final_df = final_integrated_df
             st.session_state.display_df = display_final
             st.session_state['all_summaries'] = all_summaries
-            
+
             if all_errors:
                 st.error("❌ 처리 중 발생한 오류:")
                 for e in all_errors:
@@ -1560,7 +1559,7 @@ if viz_df is not None and not viz_df.empty:
         # 데이터 그룹화
         long_df = long_df.groupby(['company', 'segment', '시점'], as_index=False)['value'].sum()
 
-        st.subheader("📊 시각화")
+        st.subheader("📊 2단계: 시각화")
 
         # 시점 유형 선택
         period_type = st.radio("시점 유형 선택", ["연도별", "분기별"], horizontal=True)

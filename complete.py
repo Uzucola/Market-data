@@ -1559,7 +1559,7 @@ if viz_df is not None and not viz_df.empty:
         # 데이터 그룹화
         long_df = long_df.groupby(['company', 'segment', '시점'], as_index=False)['value'].sum()
 
-        st.subheader("📊 2단계: 시각화")
+        st.subheader("📊 시각화")
 
         # 시점 유형 선택
         period_type = st.radio("시점 유형 선택", ["연도별", "분기별"], horizontal=True)
@@ -1806,3 +1806,4 @@ if 'final_df' in st.session_state or viz_df is not None:
                 st.markdown(fin_style_note(c))
                 st.markdown("---")
             st.caption("※ 각 기업의 보고 방식과 주요 KPI를 참고하여 분석하세요.")
+

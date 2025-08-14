@@ -1318,7 +1318,7 @@ st.markdown("""
 """)
 
 # ================== 단계 1: PDF 처리 (완전 기능) ==================
-st.header("📄 1단계: PDF 업로드")
+st.header("📄 PDF 업로드")
 
 uploaded_pdf_files = st.file_uploader(
     "PDF 보고서를 업로드하세요 (여러 개 가능)", type=["pdf"], accept_multiple_files=True
@@ -1560,7 +1560,7 @@ if viz_df is not None and not viz_df.empty:
         # 데이터 그룹화
         long_df = long_df.groupby(['company', 'segment', '시점'], as_index=False)['value'].sum()
 
-        st.subheader("📊 2단계: 시각화")
+        st.subheader("📊 시각화")
 
         # 시점 유형 선택
         period_type = st.radio("시점 유형 선택", ["연도별", "분기별"], horizontal=True)
